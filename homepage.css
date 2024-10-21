@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.navbar {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #9a00c0;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #9a00c0;
+}
+
+.reservation-btn {
+    background-color: #9a00c0;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.reservation-btn:hover {
+    background-color: #9a00c0;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+header {
+    background-color: #f0f4f3;
+    padding: 50px 0;
+}
+
+.header-content {
+    flex: 1;
+    padding-right: 30px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #1b1b1b;
+}
+
+header p {
+    font-size: 18px;
+    color: #777;
+    margin: 20px 0;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #b607e2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #9a00c0;
+}
+
+.services {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.container {
+    display: flex; /* Aktivizo fleksibilitetin */
+    flex-wrap: wrap; /* Lejo rreshtimin në rreshta të ndryshëm */
+    justify-content: center; /* Qendro shërbimet në qendër */
+    max-width: 1200px; /* Mundi të vendosësh një maksimum për madhësinë e kontejnerit */
+    margin: 0 auto; /* Qendro kontejnerin në qendër */
+}
+
+.service {
+    flex: 1 1 300px; /* Përcakto madhësinë minimale */
+    text-align: center;
+    margin: 30px;
+    display: flex; /* Aktivizo fleksibilitetin për shërbimin */
+    flex-direction: column; /* Rreshto përmbajtjen në kolona */
+    align-items: center; /* Qendro imazhin dhe tekstin në qendër */
+}
+
+.service img {
+    max-width: 100%; /* Bëj imazhin të mbushë hapësirën */
+    height: auto; /* Ruaj proporcioni origjinal */
+    margin-bottom: 10px; /* Redukto margjinën poshtë imazhit */
+}
+
+.service h3 {
+    font-size: 24px; /* Madhësia e titullit */
+    color: #333;
+    margin-bottom: 10px; /* Margjinë poshtë titullit */
+}
+
+.service p {
+    color: #777; /* Ngjyra e përshkrimit */
+    margin-bottom: 15px; /* Margjinë poshtë përshkrimit */
+}
+
+.service a {
+    color: #9a00c0; /* Ngjyra e lidhjes */
+    text-decoration: none; /* Hiq nënvizimin */
+}
+
+.service a:hover {
+    text-decoration: underline; /* Nënvizim kur kalon mbi lidhjen */
+}
+
+
+/*
+.services {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.service {
+    flex: 1;
+    text-align: center;
+    margin: 30px;
+}
+
+.service img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.service h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.service a {
+    color: #9a00c0;
+    text-decoration: none;
+}
+
+.service a:hover {
+    text-decoration: underline;
+}*/
+
+
+.lifestyle {
+    background-color: #f0f4f3;
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lifestyle-content {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.lifestyle-content h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.lifestyle-content p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.icon-item {
+    text-align: center;
+    margin-left: 100px;
+}
+
+.icon-item img {
+    max-width: 100px;
+    height: auto;
+}
+.lifestyle-image {
+    max-width: 140%;
+    margin-left: 90px;
+    height: auto;
+}
+
+.lifestyle-image img {
+    margin-top: 30px;
+    margin-right: 60px;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+}
