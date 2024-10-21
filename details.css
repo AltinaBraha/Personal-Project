@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fdf0e6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #555;
+}
+
+.cart {
+    font-size: 18px;
+    color: #555;
+}
+
+.breadcrumb {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #ff9800;
+}
+
+.product-details {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.product-images {
+    flex: 1;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.thumbnail-images img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-info {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-info h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.product-description {
+    margin: 20px 0;
+    color: #888;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #ff9800;
+    margin-bottom: 20px;
+}
+
+.product-rating {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.product-options {
+    margin-bottom: 20px;
+}
+
+.colors, .sizes {
+    margin-bottom: 20px;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.size-btn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.size-btn.selected {
+    border-color: #ff9800;
+    background-color: #ffe0b2;
+}
+
+.add-to-cart {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.related-products {
+    margin-top: 50px;
+}
+
+.related-products h2 {
+    font-size: 24px;
+    color: #333;
+}

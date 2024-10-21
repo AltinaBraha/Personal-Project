@@ -50,7 +50,7 @@
             <a href="#">Read More</a>
         </div>
         <div class="service">
-            <img src="images/serum-remove.png" alt="Body Treatments">
+            <img src="images/seerum.png" alt="Body Treatments">
             <h3>Serum</h3>
             <p>Nourishing care for your body and skin.</p>
             <a href="#">Read More</a>
@@ -84,6 +84,8 @@
             </div>
         </div>
     </section>
-
+<?php
+    include_once("footer.php")
+?>
 </body>
 </html>
