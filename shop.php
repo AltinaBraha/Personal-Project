@@ -1,6 +1,7 @@
 <?php
 
 include_once('config.php'); 
+include("product.php");
 
 $sql = "SELECT * FROM products";
 $selectProducts = $conn->prepare($sql);

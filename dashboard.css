@@ -1,0 +1,131 @@
+
+.titulli {
+    text-align: center;
+    color: #333;
+}
+
+.permbajtja-dashboard {
+    width: 25%;
+    margin: 30px;
+    padding: 15px ;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.delete{
+    color: red;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.all-users{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 50px;
+    justify-content: center;
+}
+
+.emri {
+    margin: 10px 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.user-delete{
+    text-decoration: none;
+    padding: 10px 80px;
+    text-align: center;
+}
+
+.user-delete a{
+    padding: 0 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.editi{
+    color: blue;
+}
+
+.delete{
+    color: red;
+}
+
+.delete-contacti{
+    color: red;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.permbajtja {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+
+.cmimi{
+    font-size: 10px;
+}
+.underimgg{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 15px;
+  border-bottom: 1px solid rgb(189, 186, 186);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.underimgg a{
+    margin-top: 15px;
+    text-decoration: none;
+    color: rgb(21, 21, 21);
+}
+
+.titulli{
+    text-align: center;
+}
+
+.butonat{
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-button{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.edit-button{
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(35, 175, 129);
+    margin-left: 130px;
+}
+
+.view-button{
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(95, 109, 31);
+    
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .permbjtja-dashboard{
+        margin: 0;
+        width: 100%;
+    }
+  }

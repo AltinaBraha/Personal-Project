@@ -1,16 +1,16 @@
 <?php
-
+// config.php
 $user = "root";
-$pass ="";
-$server="localhost";
+$pass = "";
+$server = "localhost";
 $dbname = "ecommerce";
 
+try {
+    $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-try{
-    $conn= new PDO("mysql:host=$server; dbname=$dbname", $user, $pass);
-    echo "me sukses";
-}catch(PDOException $e){
-    echo "error:" . $e->getMessage();
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
-
 ?>
+
