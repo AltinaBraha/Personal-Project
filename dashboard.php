@@ -8,7 +8,7 @@ include("product.php");
 include('user.php');
 $user = new User($conn); 
 
-$_SESSION['role'] = 'admin';
+$_SESSION['is_admin'] = "true";
 
 $sql = "SELECT * FROM products";
 $selectProducts = $conn->prepare($sql);
@@ -16,7 +16,7 @@ $selectProducts->execute();
 
 $products_data = $selectProducts->fetchAll();
 
-if ($_SESSION['role'] === 'admin') {
+if ($_SESSION['is_admin'] === "true") {
     if (isset($_GET['action']) && isset($_GET['user_id'])) {
         $action = $_GET['action'];
         $userId = $_GET['user_id'];
@@ -70,7 +70,7 @@ if ($_SESSION['role'] === 'admin') {
 
 
 
-if ($_SESSION['role'] === 'admin') {
+if ($_SESSION['is_admin'] === "true") {
     // Delete Product
     if (isset($_GET['action']) && $_GET['action'] === 'delete_product' && isset($_GET['product_id'])) {
         $productId = $_GET['product_id'];
@@ -194,7 +194,7 @@ if ($_SESSION['role'] === 'admin') {
                 <span>★★★★★</span>
                 <span>(<?= $product['reviews'] ?> Reviews)</span>
             </div>
-            <?php if ($_SESSION['is_admin'] === 'true'): ?>
+            <?php if ($_SESSION['is_admin'] === "true"): ?>
                 <div class="admin-actions">
                 <button onclick="openEditModal(<?= $product['id'] ?>, '<?= addslashes($product['name']) ?>', <?= $product['price'] ?>, <?= $product['reviews'] ?>, '<?= $product['img_url'] ?>')" class="edit-button">Edit</button>
                     <a href="?action=delete_product&product_id=<?= $product['id'] ?>" class="delete-button" style="color: red;">Delete</a>
@@ -204,11 +204,14 @@ if ($_SESSION['role'] === 'admin') {
     <?php endforeach; ?>
 </div>
 
-<!-- Edit Product Modal -->
 <div id="editProductModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeEditModal()">&times;</span>
         <h2>Edit Product</h2>
+
+        <!-- Display the current image if desired -->
+        <img id="imagePreview" src="" alt="Current Image" style="display: none; max-width: 100%; height: auto; margin-bottom: 10px;">
+
         <form method="post" id="editProductForm" action="dashboard.php" enctype="multipart/form-data">
             <input type="hidden" id="editProductId" name="product_id">
             <label for="editProductName">Product Name:</label>
@@ -217,12 +220,15 @@ if ($_SESSION['role'] === 'admin') {
             <input type="number" id="editPrice" name="editPrice" step="0.01" required>
             <label for="editReviews">Reviews:</label>
             <input type="number" id="editReviews" name="editReviews" required>
-            <label for="editImageFile">Image URL:</label>
+            <label for="editImageFile">Image File:</label>
             <input type="file" id="editImageFile" name="editImageFile">
             <input type="submit" name="update_product" value="Update Product">
         </form>
     </div>
 </div>
+
+
+
 
 <div class="products">
     <?php if (!empty($user_products)): ?>
@@ -265,7 +271,9 @@ function openEditModal(productId, productName, price, reviews, image) {
     document.getElementById('editProductName').value = productName;
     document.getElementById('editPrice').value = price;
     document.getElementById('editReviews').value = reviews;
-    document.getElementById('editImageFile').value = image;
+
+
+   
 
     document.getElementById('editProductModal').style.display = 'flex';
 }
@@ -274,6 +282,7 @@ function closeEditModal() {
     document.getElementById('editProductModal').style.display = 'none';
 }
 </script>
+
 
 </body>
 </html>

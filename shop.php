@@ -2,6 +2,8 @@
 
 include_once('config.php'); 
 include("product.php");
+include_once("header.php");
+
 
 $sql = "SELECT * FROM products";
 $selectProducts = $conn->prepare($sql);
@@ -18,9 +20,11 @@ $products_data = $selectProducts->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Display</title>
     <link rel="stylesheet" href="shop.css">
+    
 </head>
 <body>
 
+    
 
     <div class="product-container">
         <?php

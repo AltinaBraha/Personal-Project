@@ -15,9 +15,14 @@ include("config.php");
 
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    $userId = $_SESSION['user_id'];
+    if (isset($_SESSION['id'])) {
+        $userId = $_SESSION['id'];
+    } else {
+        echo "<p>User ID is not set in the session.</p>";
+        exit; 
+    }
+    
 
- 
     ?>
 
     <div class="format">
@@ -45,20 +50,16 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     </div>
 
     <?php
-    
     if (isset($_POST['add_product'])) {
         $productName = $_POST['product_name'];
         $price = $_POST['price'];
         $reviews = $_POST['reviews'];
         $description = $_POST['description'];
 
-        
         $image = $_FILES['image'];
         $imagePath = 'images/' . basename($image['name']);
         
-   
         if (move_uploaded_file($image['tmp_name'], $imagePath)) {
-        
             $stmt = $conn->prepare("INSERT INTO products (name, price, reviews, img_url, description, user_id) VALUES (?, ?, ?, ?, ?, ?)");
         
             if ($stmt->execute([$productName, $price, $reviews, $imagePath, $description, $userId])) {
@@ -73,6 +74,5 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 } else {
     echo "<p>You are not logged in.</p>";
 }
-
 include("footer.php");
 ?>

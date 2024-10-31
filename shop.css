@@ -1,17 +1,108 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+.navbar {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #9a00c0;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    display: inline;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #9a00c0;
+}
+
+.reservation-btn {
+    background-color: #9a00c0;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.reservation-btn:hover {
+    background-color: #9a00c0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    background-color: #f0f4f3;
+    padding: 100px 0 50px; 
+    margin-top: 60px; 
+}
+
+.header-content {
+    flex: 1;
+    padding-right: 30px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #1b1b1b;
+}
+
+header p {
+    font-size: 18px;
+    color: #777;
+    margin: 20px 0;
 }
 
 .product-container {

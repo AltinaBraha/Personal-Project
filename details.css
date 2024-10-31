@@ -119,8 +119,14 @@ body {
 }
 
 .colors, .sizes {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
+.sizes .nr {
+    margin-bottom: 25px;      
+    display: inline-block;    
+    font-size: 16px;         
+}
+
 
 .color-btn {
     width: 30px;

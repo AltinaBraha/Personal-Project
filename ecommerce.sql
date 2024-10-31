@@ -37,3 +37,23 @@ ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `products`
 MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+CREATE TABLE `contactform` (
+    `id` INT NOT NULL, 
+    `name` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(100) NOT NULL, 
+    `message` VARCHAR(255) NOT NULL,
+    `submission_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP 
+);
+
+INSERT INTO `contactform` (name, email, message) VALUES 
+('John Doe', 'john.doe@example.com', 'I am interested in your services.'),
+('Jane Smith', 'jane.smith@example.com', 'Could you please provide more details?'),
+('Alice Johnson', 'alice.johnson@example.com', 'I have a question about my order.');
+
+ALTER TABLE `contactform`
+ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `contactform`
+MODIFY `id` INT NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;

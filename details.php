@@ -58,22 +58,31 @@ $defaultSizes = ['37', '38', '39', '40', '41', '42'];
                 </div>
 
                 <div class="product-options">
-                    <div class="colors">
-                        <p>Color:</p>
-                        <?php foreach ($defaultColors as $color): ?>
-                            <button class="color-btn" style="background-color: <?php echo htmlspecialchars($color); ?>;"></button>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="sizes">
-                        <p>Size:</p>
-                        <?php foreach ($defaultSizes as $size): ?>
-                            <button class="size-btn"><?php echo htmlspecialchars($size); ?></button>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+                    <form method="post" action="add_to_cart.php"> 
+                        <div class="colors">
+                            <p>Color:</p>
+                            <?php foreach ($defaultColors as $color): ?>
+                                <label>
+                                <button type="button" class="color-btn" style="background-color: <?php echo htmlspecialchars($color); ?>;" onclick="selectColor(this)"></button>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="sizes">
+                            <div>
+                            <p class="nr">Number:</p>
+                            </div>
+                            <?php foreach ($defaultSizes as $size): ?>
+                                <label>
+                                    <input type="radio" name="size" value="<?php echo htmlspecialchars($size); ?>" required>
+                                    <span class="size-btn"><?php echo htmlspecialchars($size); ?></span>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
 
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+                        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
+                        <button type="submit" class="add-to-cart">Add to Cart</button>
+                    </form>
+                </div>
         </section>
     </div>
 
