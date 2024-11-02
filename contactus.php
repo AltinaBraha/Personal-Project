@@ -29,21 +29,21 @@ $contactForm->handleFormSubmission();
                 <div class="part2_box_tx">
                     <i class="fa-solid fa-phone"></i>
                     <h2>+383 49 400 711</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    <p>Contact us at our number.</p>
                 </div>
             </div>
             <div class="part2_box">
                 <div class="part2_box_tx">
                     <i class="fa-solid fa-envelope"></i>
-                    <h2>bookstore@gmail.com</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    <h2>ecommerce@gmail.com</h2>
+                    <p>Contact us at our email.</p>
                 </div>
             </div>
             <div class="part2_box3">
                 <div class="part2_box_tx">
                     <i class="fa-solid fa-location-dot"></i>
                     <h2>Kosova, Prishtine</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                    <p>The location where we are located.</p>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@ $contactForm->handleFormSubmission();
                 <div class="part3_left_tx">
                     <h1>𝔽𝕆ℝ𝕄</h1>
                     <h2>Get in Touch!!</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nihil harum dolorum sapiente, accusamus, molestias impedit ducimus itaque perferendis nobis aperiam incidunt veritatis consequuntur eaque!</p>
+                    <p>We are dedicated to helping you discover the best beauty products that enhance your natural beauty. If you have any questions about our products, need assistance with an order, or want to learn more about our brand, we are here to help!</p>
                 </div>
             </div>
             <div class="part3_right">

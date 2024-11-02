@@ -3,10 +3,10 @@ include("config.php");
 
 class ContactForm
 {
-    private $conn; // Variable for database connection
+    private $conn; 
 
     public function __construct($dbConn) {
-        $this->conn = $dbConn; // Store the database connection
+        $this->conn = $dbConn; 
     }
     
     public function handleFormSubmission()
@@ -30,7 +30,7 @@ class ContactForm
             return;
         }
 
-        // Bind parameters using PDO
+    
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':message', $message);
@@ -61,7 +61,7 @@ class ContactForm
         $sql = "DELETE FROM contactform WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         
-        // Bind parameter using PDO
+        
         $stmt->bindParam(':id', $contactId, PDO::PARAM_INT);
 
         if ($stmt->execute()) {

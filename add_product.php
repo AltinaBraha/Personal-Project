@@ -64,6 +64,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         
             if ($stmt->execute([$productName, $price, $reviews, $imagePath, $description, $userId])) {
                 echo "<p>Product added successfully!</p>";
+                header('Location: dashboard.php'); 
             } else {
                 echo "<p>Error adding product.</p>";
             }

@@ -1,10 +1,9 @@
 <?php
 
-session_start(); 
-
-
+include('header.php');
 include_once('config.php');
 include("product.php");
+include("contactform.php");
 include('user.php');
 $user = new User($conn); 
 
@@ -13,6 +12,17 @@ $_SESSION['is_admin'] = "true";
 $sql = "SELECT * FROM products";
 $selectProducts = $conn->prepare($sql);
 $selectProducts->execute();
+$contacts = new ContactForm($conn);
+
+$contact_entries = $contacts->getAllContacts();
+
+
+
+if (isset($_GET['action']) && $_GET['action'] === 'delete_contact' && isset($_GET['contact_id'])) {
+    $contactId = $_GET['contact_id'];
+    $contacts->deleteContact($contactId);
+}
+
 
 $products_data = $selectProducts->fetchAll();
 
@@ -71,16 +81,25 @@ if ($_SESSION['is_admin'] === "true") {
 
 
 if ($_SESSION['is_admin'] === "true") {
-    // Delete Product
-    if (isset($_GET['action']) && $_GET['action'] === 'delete_product' && isset($_GET['product_id'])) {
-        $productId = $_GET['product_id'];
-        $sql = "DELETE FROM products WHERE id = :product_id";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':product_id', $productId);
-        $stmt->execute();
-        header("Location: dashboard.php");
-        exit();
-    }
+        // Delete Product
+        if (isset($_GET['action']) && $_GET['action'] === 'delete_product' && isset($_GET['product_id'])) {
+            $productId = $_GET['product_id'];
+            
+            $deleteCartItems = $conn->prepare("DELETE FROM cart WHERE product_id = :product_id");
+            $deleteCartItems->bindParam(':product_id', $productId);
+            $deleteCartItems->execute();
+            
+            
+            $sql = "DELETE FROM products WHERE id = :product_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':product_id', $productId);
+            $stmt->execute();
+            
+            header("Location: dashboard.php");
+            exit();
+        }
+    
+    
 
     // Update Product
     if (isset($_POST['update_product'])) {
@@ -102,7 +121,33 @@ if ($_SESSION['is_admin'] === "true") {
         exit();
     }
 }
-
+if ($_SESSION['is_admin'] === 'true') {
+    ?>
+    <h1 class="titulli">Contacts</h1>
+    <?php
+     echo '<div class="all-users">';
+    foreach ($contact_entries as $contacts):
+        ?>
+        <div class="contact">
+            <h1 class="emri">
+                <?= $contacts["name"] ?>
+            </h1>
+            <p class="contactform">
+                <?= $contacts["email"] ?>
+            </p>
+            <p class="contactform">
+                <?= $contacts["message"] ?>
+            </p>
+            <p class="contactform">
+                <?= $contacts["submission_date"] ?>
+            </p>
+            <a href="?action=delete_contact&contact_id=<?= $contacts['id'] ?>" class="delete">Delete</a>
+        </div>
+        <hr class="hr" />
+        <?php
+    endforeach;
+    echo'</div>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +155,6 @@ if ($_SESSION['is_admin'] === "true") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Product Dashboard</title>
-    <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="dashboard.css">
     <style> 
         .modal {
@@ -209,7 +253,7 @@ if ($_SESSION['is_admin'] === "true") {
         <span class="close" onclick="closeEditModal()">&times;</span>
         <h2>Edit Product</h2>
 
-        <!-- Display the current image if desired -->
+        
         <img id="imagePreview" src="" alt="Current Image" style="display: none; max-width: 100%; height: auto; margin-bottom: 10px;">
 
         <form method="post" id="editProductForm" action="dashboard.php" enctype="multipart/form-data">
@@ -221,7 +265,7 @@ if ($_SESSION['is_admin'] === "true") {
             <label for="editReviews">Reviews:</label>
             <input type="number" id="editReviews" name="editReviews" required>
             <label for="editImageFile">Image File:</label>
-            <input type="file" id="editImageFile" name="editImageFile">
+            <input type="file" id="editImageFile" name="editImageFile" data-path="images/">
             <input type="submit" name="update_product" value="Update Product">
         </form>
     </div>
@@ -256,7 +300,7 @@ if ($_SESSION['is_admin'] === "true") {
             </div>
         <?php endforeach; ?>
     <?php else: ?>
-        <p> <a href="add_product.php">Add one</a>.</p>
+        <p id="hi"> <a href="add_product.php">Add one</a>.</p>
     <?php endif; ?>
 </div>
 
@@ -273,7 +317,9 @@ function openEditModal(productId, productName, price, reviews, image) {
     document.getElementById('editReviews').value = reviews;
 
 
+    
    
+    
 
     document.getElementById('editProductModal').style.display = 'flex';
 }
@@ -284,5 +330,9 @@ function closeEditModal() {
 </script>
 
 
+
+<?php
+    include("footer.php");
+?>
 </body>
 </html>

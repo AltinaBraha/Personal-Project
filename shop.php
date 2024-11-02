@@ -24,8 +24,6 @@ $products_data = $selectProducts->fetchAll();
 </head>
 <body>
 
-    
-
     <div class="product-container">
         <?php
 

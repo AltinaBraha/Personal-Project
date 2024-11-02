@@ -1,3 +1,6 @@
+<?php
+    include_once("header.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,24 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty & Wellness</title>
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#">Ecommerce</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </div>
-    </nav>
-
-
     <header>
         <div class="container">
             <div class="header-content">
@@ -38,25 +26,57 @@
     <section class="services">
     <div class="container">
         <div class="service">
-            <img src="images/parfume.PNG" alt="Spa">
-            <h3>Parfume</h3>
+            <img src="images/cream.png" alt="cream">
+            <h3>Browser</h3>
             <p>Experience and relaxation.</p>
             <a href="#">Read More</a>
         </div>
         <div class="service">
-            <img src="images/kos.png" alt="Hair & Beauty">
+            <img src="images/kos.png" alt="product">
             <h3>Products</h3>
             <p>Bringing balance to your style and spirit.</p>
             <a href="#">Read More</a>
         </div>
         <div class="service">
-            <img src="images/seerum.png" alt="Body Treatments">
-            <h3>Serum</h3>
+            <img src="images/foundation.png" alt="Body Treatments">
+            <h3>Foundation</h3>
             <p>Nourishing care for your body and skin.</p>
             <a href="#">Read More</a>
         </div>
     </div>
 </section>
+
+<section class="new" id="new">
+        <div class="heading">
+            <i>Our serum</i>
+        </div>
+
+        <div class="swiper new-serum">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img src="images/se1.webp" alt="">
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="images/se2.webp" alt="">
+
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="images/se3.webp" alt="">
+
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="images/se4.webp" alt="">
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="images/se5.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <section class="lifestyle">
@@ -87,5 +107,7 @@
 <?php
     include_once("footer.php")
 ?>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="homepage.js"></script>
 </body>
 </html>

@@ -61,7 +61,35 @@ body {
     background-color: #9a00c0;
 }
 
+/*serum*/
+.new-serum{
+    margin-top: 3rem;
+    margin-bottom: 10%;
+}
 
+.new-serum .box{
+    position: relative;
+    overflow: hidden;
+    background: var(--second-color);
+    width: 150px; 
+    height: auto; 
+}
+
+.new-serum .box img{
+    background: var(--second-color);
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+}
+
+
+.new .heading{
+    font: italic small-caps bold 46px cursive;
+    text-align: center;
+    font-variant: small-caps slashed-zero;
+    font-family: cursive;
+    color: #333;
+}
 .container {
     width: 90%;
     max-width: 1200px;
@@ -117,86 +145,49 @@ header p {
 }
 
 .container {
-    display: flex; /* Aktivizo fleksibilitetin */
-    flex-wrap: wrap; /* Lejo rreshtimin në rreshta të ndryshëm */
-    justify-content: center; /* Qendro shërbimet në qendër */
-    max-width: 1200px; /* Mundi të vendosësh një maksimum për madhësinë e kontejnerit */
-    margin: 0 auto; /* Qendro kontejnerin në qendër */
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .service {
-    flex: 1 1 300px; /* Përcakto madhësinë minimale */
+    flex: 1 1 300px; 
     text-align: center;
     margin: 30px;
-    display: flex; /* Aktivizo fleksibilitetin për shërbimin */
-    flex-direction: column; /* Rreshto përmbajtjen në kolona */
-    align-items: center; /* Qendro imazhin dhe tekstin në qendër */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .service img {
-    max-width: 100%; /* Bëj imazhin të mbushë hapësirën */
-    height: auto; /* Ruaj proporcioni origjinal */
-    margin-bottom: 10px; /* Redukto margjinën poshtë imazhit */
-}
-
-.service h3 {
-    font-size: 24px; /* Madhësia e titullit */
-    color: #333;
-    margin-bottom: 10px; /* Margjinë poshtë titullit */
-}
-
-.service p {
-    color: #777; /* Ngjyra e përshkrimit */
-    margin-bottom: 15px; /* Margjinë poshtë përshkrimit */
-}
-
-.service a {
-    color: #9a00c0; /* Ngjyra e lidhjes */
-    text-decoration: none; /* Hiq nënvizimin */
-}
-
-.service a:hover {
-    text-decoration: underline; /* Nënvizim kur kalon mbi lidhjen */
-}
-
-
-/*
-.services {
-    padding: 50px 0;
-    background-color: #fff;
-}
-
-.service {
-    flex: 1;
-    text-align: center;
-    margin: 30px;
-}
-
-.service img {
-    max-width: 200px;
+    max-width: 100%; 
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 10px; 
 }
 
 .service h3 {
     font-size: 24px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 }
 
 .service p {
     color: #777;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
 }
 
 .service a {
-    color: #9a00c0;
-    text-decoration: none;
+    color: #9a00c0; 
+    text-decoration: none; 
 }
 
 .service a:hover {
-    text-decoration: underline;
-}*/
+    text-decoration: underline; 
+}
+
+
 
 
 .lifestyle {

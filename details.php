@@ -79,8 +79,16 @@ $defaultSizes = ['37', '38', '39', '40', '41', '42'];
                             <?php endforeach; ?>
                         </div>
 
-                        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
-                        <button type="submit" class="add-to-cart">Add to Cart</button>
+                       
+                    <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
+                    <button type="submit" class="add-to-cart" onclick="showAddToCartAlert()">Add to Cart</button>
+
+                    <script>
+                    function showAddToCartAlert() {
+                        alert("Product has been added to your cart!");
+                    }
+                    </script>
+
                     </form>
                 </div>
         </section>

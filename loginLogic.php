@@ -35,7 +35,9 @@ if(isset($_POST['submit']))
             $_SESSION['is_admin'] = $data['is_admin'];
             $_SESSION['logged_in'] = true; 
 
-            header('Location:dashboard.php');
+
+           
+            header('Location:homepage.php');
             exit(); 
         } else {
             echo "The password is not valid";

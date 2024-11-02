@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bindParam(':size', $size, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
-
+        echo '<script>alert("added to cart successfully!");</script>';
         header('Location: shop.php?success=1'); 
         exit();
     } else {
