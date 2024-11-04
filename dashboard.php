@@ -56,7 +56,7 @@
 
         $allUsers = $user->getAllUsers();
 
-        echo '<h1 class="titulli">User Dashboard</h1>';
+        echo '<h1 class="titulli">Users</h1>';
         echo '<div class="all-users">';
         foreach ($allUsers as $currentUser):
             ?>

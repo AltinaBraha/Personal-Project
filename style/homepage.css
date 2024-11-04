@@ -26,7 +26,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
-    color: #9a00c0;
+    color: #7e00a0;
 }
 
 .navbar .nav-links {
@@ -51,14 +51,14 @@ body {
 }
 
 .reservation-btn {
-    background-color: #9a00c0;
+    background-color: #7e00a0;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
 }
 
 .reservation-btn:hover {
-    background-color: #9a00c0;
+    background-color: #7e00a0;
 }
 
 /*serum*/

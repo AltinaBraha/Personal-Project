@@ -24,29 +24,29 @@
     </header>
 
     <section class="services">
-    <div class="container">
-        <div class="service">
-            <img src="images/cream.png" alt="cream">
-            <h3>Browser</h3>
-            <p>Experience and relaxation.</p>
-            <a href="#">Read More</a>
+        <div class="container">
+            <div class="service">
+                <img src="images/cream.png" alt="cream">
+                <h3>Bronzing</h3>
+                <p>Illuminate your skin with our expert bronzing treatments.</p>
+                <a href="#">Discover More</a>
+            </div>
+            <div class="service">
+                <img src="images/kos.png" alt="product">
+                <h3>Wellness Products</h3>
+                <p>Enhance your well-being with our curated selection of products.</p>
+                <a href="#">Explore Now</a>
+            </div>
+            <div class="service">
+                <img src="images/foundation.png" alt="Body Treatments">
+                <h3>Body Care</h3>
+                <p>Revitalize your skin with our nourishing body treatments.</p>
+                <a href="#">Learn More</a>
+            </div>
         </div>
-        <div class="service">
-            <img src="images/kos.png" alt="product">
-            <h3>Products</h3>
-            <p>Bringing balance to your style and spirit.</p>
-            <a href="#">Read More</a>
-        </div>
-        <div class="service">
-            <img src="images/foundation.png" alt="Body Treatments">
-            <h3>Foundation</h3>
-            <p>Nourishing care for your body and skin.</p>
-            <a href="#">Read More</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="new" id="new">
+    <section class="new" id="new">
         <div class="heading">
             <i>Our serum</i>
         </div>
