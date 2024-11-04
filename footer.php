@@ -15,67 +15,67 @@
     />
 </head>
 <body>
-<footer class="text-center bg-body-tertiary">
+    <footer class="text-center bg-body-tertiary">
 
-  <div class="container pt-4">
+      <div class="container pt-4">
 
-    <section class="mb-4">
-     
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+        <section class="mb-4">
+        
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
 
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
 
-   
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
+      
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
 
 
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-linkedin"></i
-      ></a>
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
 
-  
-      <a
-        class="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
- 
-  </div>
- 
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2024 Copyright:
-    <a class="text-body" href="https://mdbootstrap.com/">Ecommerce.com</a>
-  </div>
 
-</footer>
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+
+      
+          <a
+            class="btn btn-link btn-floating btn-lg text-body m-1"
+            href="#!"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+    
+      </div>
+    
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-body" href="https://mdbootstrap.com/">Ecommerce.com</a>
+      </div>
+
+    </footer>
 
 
 <script

@@ -241,3 +241,86 @@ header p {
     height: auto;
     margin-left: 0;
 }
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #1d0c01;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+   
+    .nav-links.active {
+        display: flex;
+    }
+    .lifestyle {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .lifestyle-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .lifestyle-content h2 {
+        font-size: 24px;
+    }
+
+    .icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-item {
+        margin: 15px 0;
+    }
+
+    .icon-item img {
+        max-width: 60px; 
+    }
+
+    .lifestyle-image img {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 480px) {
+    .lifestyle-content h2 {
+        font-size: 20px;
+    }
+
+    .icon-item img {
+        max-width: 50px;
+    }
+
+    .lifestyle-content p {
+        font-size: 14px;
+    }
+}

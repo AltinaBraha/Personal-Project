@@ -19,7 +19,7 @@ $products_data = $selectProducts->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Display</title>
-    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="style/shop.css">
     
 </head>
 <body>

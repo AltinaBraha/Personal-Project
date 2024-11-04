@@ -342,10 +342,6 @@
 
 
 
-
-
-
-
 @media only screen and (max-width: 600px) {
 
     .permbajtja-dashboard{
@@ -353,3 +349,33 @@
         width: 100%;
     }
   }
+
+
+@media (max-width: 1024px) {
+    .product-container {
+        margin-left: 0; 
+        justify-content: center;
+    }
+
+    .product-card {
+        width: 45%; 
+        margin-top: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 80%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card img {
+        width: 80px; 
+        height: 120px;
+    }
+
+    .product-card h3 {
+        font-size: 1em; 
+    }
+}

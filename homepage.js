@@ -43,5 +43,3 @@ var swiper = new Swiper(".new-serum", {
     },
   });
 
-  
-  

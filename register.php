@@ -18,10 +18,11 @@ if(isset($_POST['submit'])) {
     } else {
         
         $password = password_hash($tempPass, PASSWORD_DEFAULT);
+        $confirm_password = password_hash($tempConfirm, PASSWORD_DEFAULT);
 
       
-        $sql = "INSERT INTO users (emri, username, email, password) 
-                VALUES (:emri, :username, :email, :password)";
+        $sql = "INSERT INTO users (emri, username, email, password, confirm_password) 
+                VALUES (:emri, :username, :email, :password, :confirm_password)";
 
       
         $insertSQL = $conn->prepare($sql);
@@ -29,6 +30,7 @@ if(isset($_POST['submit'])) {
         $insertSQL->bindParam(':username', $username);
         $insertSQL->bindParam(':email', $email);
         $insertSQL->bindParam(':password', $password);
+        $insertSQL->bindParam(':confirm_password', $confirm_password);
 
        
         if ($insertSQL->execute()) {
