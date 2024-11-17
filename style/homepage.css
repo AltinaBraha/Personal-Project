@@ -252,6 +252,79 @@ header p {
     z-index: 1000;
 }
 
+.review{
+    background: var(--bg-color);
+   
+}
+
+.review-box{
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(251, 241, 252);
+}
+
+.review .heading{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.review-box img{
+    width: 13rem;
+    border-radius: 80%;
+    border: 3px solid var(--main-color);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+    
+}
+
+.review-item{
+    min-height: 400px;
+    min-width: 350px;
+    background: var(--snd-bg-color);
+    border: 3px solid rgba(224, 81, 217, 0.3);
+    border-radius: 2rem;
+    margin: 0 2rem 2rem 2rem;
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: rgb(110, 16, 103);
+    transition: 0.5s ease-in-out;
+}
+
+.review-item:hover {
+    border: 3px solid var(--main-color);
+    transform: translateY(-5px) scale(1.03);
+}
+
+.review-item h2{
+    font-size: 2.0rem;
+    color: black;
+}
+
+.review-item p{
+    color: black;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+#Star {
+    color: gold;
+    font-size: 1.5rem;
+}
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
     .navbar .container {

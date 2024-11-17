@@ -9,6 +9,7 @@
     <title>Beauty & Wellness</title>
     <link rel="stylesheet" href="style/homepage.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
@@ -103,6 +104,62 @@
                 <img src="images/images.jpg" alt="Lifestyle Image">
             </div>
         </div>
+    </section>
+
+
+    <section class="review" id="review">
+        <div class="review-box">
+            <h2 class="heading">Client <span>Reviews</span></h2>
+
+            <div class="wrapper">
+                <div class="review-item">
+                    <img src="images/person1.avif" alt="">
+                    <h2>Lea</h2>
+                    <div class="rating">
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                    </div>
+
+                    <p>I ordered the skincare set, and my skin has never looked better! The serum works wonders,
+                         and the moisturizer feels so light. I appreciate the eco-friendly packaging too. Highly recommend!</p>
+                </div>
+
+                <div class="review-item">
+                    <img src="images/person2.jpg" alt="">
+                    <h2>Sara</h2>
+                    <div class="rating">
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                    </div>
+
+                    <p>The lipstick bundle is a great value for the price. The colors are vibrant and long-lasting,
+                         though I wish they were a bit more moisturizing. Overall, I’m really happy with my purchase!</p>
+                </div>
+
+                <div class="review-item">
+                    <img src="images/person3.webp" alt="">
+                    <h2>Olivia</h2>
+                    <div class="rating">
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                        <i class='bx bxs-star' id="Star"></i>
+                    </div>
+
+                    <p>"I am OBSESSED with the eyeshadow palette! The pigment is stunning, and it blends like a dream.
+                         Perfect for creating both subtle and bold looks. This is my go-to store for makeup now!</p>
+                </div>
+
+            </div>
+        </div>
+
+
     </section>
 <?php
     include_once("footer.php")

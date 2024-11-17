@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty & Wellness</title>
     <link rel="stylesheet" href="style/homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
@@ -23,11 +24,12 @@
                 echo '<li><a href="homepage.php">Home</a></li>';
                 echo '<li><a href="shop.php">Shop</a></li>';
                 echo '<li><a href="contactus.php">Contact</a></li>';
+               
 
                 if ($is_admin === "true") {
                     echo '<li><a href="dashboard.php">Dashboard</a></li>';
                 }
-
+                echo '<li><a href="cart.php"><i class="bx bx-cart"></i></li>';
                 echo '<li><a href="logout.php">Logout</a></li>';
             } else {
                 echo '<li><a href="login.php">Sign In</a></li>';
