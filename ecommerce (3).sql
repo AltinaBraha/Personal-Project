@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2024 at 01:06 PM
+-- Generation Time: Nov 18, 2024 at 11:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -32,18 +32,23 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `size` varchar(5) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `color` varchar(20) DEFAULT NULL
+  `color` varchar(20) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `product_id`, `size`, `created_at`, `color`) VALUES
-(15, 36, '37', '2024-11-04 10:17:14', '#00bcd4'),
-(16, 37, '37', '2024-11-04 10:17:18', '#f57c00'),
-(17, 37, '37', '2024-11-04 11:04:38', '#f57c00'),
-(19, 37, '38', '2024-11-04 11:47:33', '#8d6e63');
+INSERT INTO `cart` (`id`, `product_id`, `size`, `created_at`, `color`, `user_id`) VALUES
+(50, 42, '39', '2024-11-17 23:28:48', '#8d6e63', 32),
+(53, 36, '38', '2024-11-17 23:42:25', '#8d6e63', 33),
+(54, 38, '37', '2024-11-17 23:48:52', '#00bcd4', 33),
+(55, 37, '38', '2024-11-17 23:48:57', '#00bcd4', 33),
+(58, 39, '38', '2024-11-18 00:13:22', '#00bcd4', 13),
+(59, 38, '38', '2024-11-18 00:13:28', '#8d6e63', 13),
+(63, 39, '38', '2024-11-18 10:18:56', '#8d6e63', 12),
+(64, 42, '38', '2024-11-18 10:20:30', '#8d6e63', 12);
 
 -- --------------------------------------------------------
 
@@ -95,10 +100,10 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `reviews`, `img_ur
 (37, 'Makeup Primer', 'Makeup Primer', 36.00, 5, 'images/serum3.webp', 12),
 (38, 'Concealer', 'Liquid Concealer', 29.00, 4, 'images/lipstick2.webp', 12),
 (39, 'Lipstick', 'Liquid Lipstick', 65.00, 6, 'images/lipstick.webp', 12),
-(40, 'Lipstick', 'Lipstick Matt', 72.00, 7, 'images/lipstick4.webp', 12),
-(42, 'Lenghtening Mascara', 'mascara', 34.20, 10, 'images/mascara1.webp', 12),
+(42, 'lipstick', 'mascara', 34.20, 10, 'images/lipstick4.webp', 12),
 (43, 'Lift Mascara', 'Clean Lash Lengthening Tubing Mascara', 26.00, 8, 'images/mascara3.webp', 12),
-(44, 'Tatelette Mascara', 'tartelette™ XL tubing mascara', 32.00, 6, 'images/mascara2.webp', 12);
+(44, 'Tatelette Mascara', 'tartelette™ XL tubing mascara', 32.00, 6, 'images/mascara2.webp', 12),
+(48, 'Mascara', 'agag', 45.00, 45, 'images/mascara1.webp', 12);
 
 -- --------------------------------------------------------
 
@@ -113,7 +118,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `confirm_password` varchar(255) NOT NULL,
-  `is_admin` varchar(255) NOT NULL
+  `is_admin` varchar(20) DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -121,9 +126,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `emri`, `username`, `email`, `password`, `confirm_password`, `is_admin`) VALUES
-(12, 'admin', 'admin', 'altina@gmail.com', '$2y$10$F8oDrhnYYKQa0m6BNTRgFuG7dlgK3128g/H.14RZLCI8551/GxUGG', '$2y$10$F8oDrhnYYKQa0m6BNTRgFuG7dlgK3128g/H.14RZLCI8551/GxUGG', 'true'),
+(12, 'admin', 'admin', 'altina12al@gmail.com', '$2y$10$F8oDrhnYYKQa0m6BNTRgFuG7dlgK3128g/H.14RZLCI8551/GxUGG', '$2y$10$F8oDrhnYYKQa0m6BNTRgFuG7dlgK3128g/H.14RZLCI8551/GxUGG', 'true'),
 (13, 'user', 'user', 'user@gmail.com', '$2y$10$JuErKQ7lPYVA2h6PRuZPVeTxCenB.VYfsEqVxCP2YEaf4jgnf7qLO', '$2y$10$JuErKQ7lPYVA2h6PRuZPVeTxCenB.VYfsEqVxCP2YEaf4jgnf7qLO', 'false'),
-(20, 'altina', 'altina', 'tina12@gmail.com', '$2y$10$tKHhUQiGgYGVbKyzxhtv8OlYdRQKVr7h17RKTuQA/G46LvTj.W6va', '$2y$10$v3izrF5oJ8E8B/wBsN5mp.ktmZGiMJj5bFxw5/u1sHPncQtU1FIl6', 'false');
+(32, 'altina', 'altinabrahah', 'altina@gmail.com', '$2y$10$GbboszG.agFPSfYy65gXGOqwwtw8oJyUAyo57bSl662P2C4yc4Mi.', '$2y$10$92Dhqxi8420JAdJUYPLlu.vk5H63tGVvow1OO31sTyXUtCEXdYHJC', 'false'),
+(33, 'h', 'j', 'h@jkk.com', '$2y$10$ZSawIEzCiyaIY3gjk4qNgepGjHZS257EhYSPg6HS4C.Hd56zsWDEG', '$2y$10$AFO2CqNJLCY1GF0h3WmhdekijQXvJOOJ7vdJujK8ESL5y2c4Cu0q.', 'false'),
+(36, 'admini', 'admini', 'altina@gmail.com', '$2y$10$PfgEVhFpENNDaAtnjZvh9uf4IBoCcvVt1HVHn02bch4QrzknMxPj2', '$2y$10$UjRxRhOsKy0xeXmfBVoxlOp4fgkBoAnTPC9nrzlD8bdHwipQjOiq.', 'true');
 
 --
 -- Indexes for dumped tables
@@ -134,7 +141,8 @@ INSERT INTO `users` (`id`, `emri`, `username`, `email`, `password`, `confirm_pas
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `cart_ibfk_1` (`product_id`);
+  ADD KEY `cart_ibfk_1` (`product_id`),
+  ADD KEY `fk_user_id` (`user_id`);
 
 --
 -- Indexes for table `contactform`
@@ -162,25 +170,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `contactform`
 --
 ALTER TABLE `contactform`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
@@ -190,7 +198,8 @@ ALTER TABLE `users`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
