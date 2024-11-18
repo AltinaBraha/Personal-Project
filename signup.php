@@ -67,6 +67,11 @@
             text-decoration: none;
             color: rgba(106, 20, 64, 0.8);
         }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -79,12 +84,13 @@
         </div>
         <div class="right-side">
             <div class="form-container">
-                <form action="register.php" method="POST">
-                    <input type="text" name="emri" placeholder="Enter name" required>
-                    <input type="text" name="username" placeholder="Enter username" required>
-                    <input type="email" name="email" placeholder="Enter email" required>
-                    <input type="password" name="password" placeholder="Enter password" required>
-                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                <form id="signupForm" action="register.php" method="POST">
+                    <div class="error-message" id="errorMessage"></div>
+                    <input type="text" name="emri" id="name" placeholder="Enter name" required>
+                    <input type="text" name="username" id="username" placeholder="Enter username" required>
+                    <input type="email" name="email" id="email" placeholder="Enter email" required>
+                    <input type="password" name="password" id="password" placeholder="Enter password" required>
+                    <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm password" required>
                     <button type="submit" name="submit">Sign Up</button>
                 </form>
                 <div class="login-link">
@@ -93,5 +99,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+ 
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+
+            let errorMessage = '';
+
+            if (!emailRegex.test(email)) {
+                errorMessage += 'Email-i nuk është valid. Duhet të përmbajë "@" dhe ".".<br>';
+            }
+
+            if (!passwordRegex.test(password)) {
+                errorMessage += 'Fjalëkalimi duhet të ketë të paktën 6 karaktere, një shkronjë të madhe dhe një numër.<br>';
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage += 'Fjalëkalimi dhe konfirmimi nuk përputhen.<br>';
+            }
+
+            if (errorMessage) {
+                e.preventDefault(); 
+                document.getElementById('errorMessage').innerHTML = errorMessage;
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
