@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,20 +21,18 @@
         </div>
         <ul class="nav-links">
             <?php
-            session_start();
-
+            
             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
                 $is_admin = $_SESSION['is_admin'];
 
                 echo '<li><a href="homepage.php">Home</a></li>';
                 echo '<li><a href="shop.php">Shop</a></li>';
                 echo '<li><a href="contactus.php">Contact</a></li>';
-               
 
                 if ($is_admin === "true") {
                     echo '<li><a href="dashboard.php">Dashboard</a></li>';
                 }
-                echo '<li><a href="cart.php"><i class="bx bx-cart"></i></li>';
+                echo '<li><a href="cart.php"><i class="bx bx-cart"></i></a></li>';
                 echo '<li><a href="logout.php">Logout</a></li>';
             } else {
                 echo '<li><a href="login.php">Sign In</a></li>';
@@ -40,9 +43,9 @@
         <div class="menu-toggle">&#9776;</div>
     </div>
 </nav>
+
 <script>
-  
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -50,8 +53,6 @@
         navLinks.classList.toggle('active');
     });
 });
-
-
 
 </script>
 </body>

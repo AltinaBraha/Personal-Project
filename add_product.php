@@ -15,8 +15,8 @@ include("config.php");
 
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    if (isset($_SESSION['id'])) {
-        $userId = $_SESSION['id'];
+    if (isset($_SESSION['user_id'])) {
+        $userId = $_SESSION['user_id'];
     } else {
         echo "<p>User ID is not set in the session.</p>";
         exit; 

@@ -1,6 +1,14 @@
 <?php
+session_start();
 include_once('config.php');
 
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$userId = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
@@ -8,22 +16,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expiry_date = $_POST['expiry_date'];
     $cvv = $_POST['cvv'];
 
+
     $payment_success = true; 
 
     if ($payment_success) {
-     
-        echo "<div class='payment-success'>";
-        echo "<h1>Payment Completed Successfully!</h1>";
-        echo "<p>Your payment has been successfully processed. Thank you for your purchase!</p>";
-        echo "</div>";
+ 
+        try {
+            $sql = "DELETE FROM cart WHERE user_id = :user_id";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+            $stmt->execute();
 
-        echo "<script>
-                setTimeout(function() {
-                    window.location.href = 'shop.php'; // Ridrejto në faqen shop.php pas 3 sekondash
-                }, 3000); // 3000 milisekonda = 3 sekonda
-              </script>";
+    
+            echo "<div class='payment-success'>";
+            echo "<h1>Payment Completed Successfully!</h1>";
+            echo "<p>Your payment has been successfully processed. Thank you for your purchase!</p>";
+            echo "</div>";
+
+            echo "<script>
+                    setTimeout(function() {
+                        window.location.href = 'shop.php'; 
+                    }, 2000); // 2000 milisekonda = 2 sekonda
+                  </script>";
+        } catch (Exception $e) {
+            echo "<div class='payment-failed'>";
+            echo "<h1>Error</h1>";
+            echo "<p>Failed to clear cart: " . htmlspecialchars($e->getMessage()) . "</p>";
+            echo "</div>";
+        }
     } else {
-        
+
         echo "<div class='payment-failed'>";
         echo "<h1>Payment Failed</h1>";
         echo "<p>Sorry, there was an issue processing your payment. Please try again later.</p>";
@@ -31,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 
 <style>
     body {

@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    /*header("HTTP/1.1 403 Forbidden");
+    exit("Forbidden Access");*/
+}
+
 
     include('header.php');
     include_once('config.php');

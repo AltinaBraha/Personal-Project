@@ -327,27 +327,42 @@ header p {
 }
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        align-items: flex-start;
+    .menu-toggle {
+        display: block; 
+        position: relative;
+        font-size: 24px;
+        cursor: pointer;
+        color: #1d0c01;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 1000;
     }
 
     
-    .nav-links {
+    .navbar .nav-links {
+        list-style-type: none;
         display: none;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
+        gap: 20px;
     }
 
-    .menu-toggle {
-        display: block; 
-    }
-
-   
     .nav-links.active {
-        display: flex;
+        display: flex; 
+
     }
+    .navbar .container {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column; 
+        gap: 5px; 
+        padding: 10px 0; 
+        background-color: #fff; 
+    }
+  
     .lifestyle {
         flex-direction: column;
         align-items: center;
@@ -379,6 +394,39 @@ header p {
     .lifestyle-image img {
         margin-top: 20px;
     }
+
+    .wrapper {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+
+    .review-item {
+        min-height: 300px;
+        min-width: 250px; 
+        padding: 15px 30px;
+    }
+
+    .review .heading {
+        font-size: 1.8rem; 
+        margin-top: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .review-box img {
+        width: 8rem; 
+    }
+
+    .review-item h2 {
+        font-size: 1.8rem;
+    }
+
+    .review-item p {
+        font-size: 1rem;
+    }
+
+    #Star {
+        font-size: 1.3rem;
+    }
 }
 
 
@@ -395,5 +443,32 @@ header p {
 
     .lifestyle-content p {
         font-size: 14px;
+    }
+
+    .review .heading {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .review-box img {
+        width: 7rem;
+    }
+
+    .review-item {
+        min-height: 250px; 
+        padding: 10px 20px;
+    }
+
+    .review-item h2 {
+        font-size: 1.6rem; 
+    }
+
+    .review-item p {
+        font-size: 0.9rem; 
+    }
+
+    #Star {
+        font-size: 1.2rem; 
     }
 }

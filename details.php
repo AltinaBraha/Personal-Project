@@ -4,11 +4,13 @@ include_once('config.php');
 
 if (isset($_GET['id'])) {
     $productId = intval($_GET['id']); 
+    $userId = intval($_GET['id']); 
 
   
     $sql = "SELECT * FROM products WHERE id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $productId, PDO::PARAM_INT);
+    $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
     $stmt->execute();
 
     $product = $stmt->fetch(PDO::FETCH_ASSOC);

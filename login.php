@@ -1,3 +1,44 @@
+<?php
+session_start();
+include_once('config.php');
+
+$error_message = ''; 
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (empty($username) || empty($password)) {
+        $error_message = "Please fill in all fields";
+    } else {
+        $sql = "SELECT id, emri, username, email, password, is_admin FROM users WHERE username = :username";
+        $selectUser = $conn->prepare($sql);
+        $selectUser->bindParam(":username", $username);
+        $selectUser->execute();
+
+        $data = $selectUser->fetch();
+
+        if ($data == false) {
+            $error_message = "The user does not exist";
+        } else {
+            if (password_verify($password, $data['password'])) {
+                $_SESSION['user_id'] = $data['id'];
+                $_SESSION['username'] = $data['username'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['emri'] = $data['emri'];
+                $_SESSION['is_admin'] = $data['is_admin'];
+                $_SESSION['logged_in'] = true;
+
+                header('Location: shop.php');
+                exit();
+            } else {
+                $error_message = "The password is not valid";
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +108,13 @@
             text-decoration: none;
             color: rgba(106, 20, 64, 0.8);
         }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 2px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -74,12 +122,13 @@
         <div class="left-side">
             <div>
                 <h1>Welcome to ECommerce</h1>
-                <p>Welcome to our eCommerce platform, where you can easily browse, shop, and manage your purchases online. Explore a wide range of products, enjoy secure payment options, and track your orders with just a few clicks. We are committed to providing you with the best shopping experience.</p>
+                <p>Welcome to our eCommerce platform, where you can easily browse, shop, and manage your purchases online.</p>
             </div>
         </div>
         <div class="right-side">
             <div class="form-container">
-                <form action="loginLogic.php" method="POST">
+                <form action="login.php" method="POST">
+
                     <div class="form-floating">
                         <label for="floatingInput">Username</label>
                         <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" required>
@@ -87,6 +136,9 @@
                     <div class="form-floating">
                         <label for="floatingPassword">Password</label>
                         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <?php if (!empty($error_message) && strpos($error_message, 'password') !== false): ?>
+                            <div class="error-message"><?php echo $error_message; ?></div>
+                        <?php endif; ?>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign in</button>
                     <div class="login-link">

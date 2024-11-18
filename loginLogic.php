@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
 
 
            
-            header('Location:homepage.php');
+            header('Location:shop.php');
             exit(); 
         } else {
             echo "The password is not valid";
