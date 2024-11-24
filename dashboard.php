@@ -1,10 +1,10 @@
 <?php
+ob_start(); 
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
-    /*header("HTTP/1.1 403 Forbidden");
-    exit("Forbidden Access");*/
+    exit();
 }
 
 
@@ -189,7 +189,7 @@ if (!isset($_SESSION['user_id'])) {
         <title>Admin Product Dashboard</title>
         <link rel="stylesheet" href="style/dashboard.css">
         <style> 
-            .modal {
+             .modal {
                 display: none;
                 position: fixed;
                 z-index: 1;
@@ -204,11 +204,14 @@ if (!isset($_SESSION['user_id'])) {
             }
 
             .modal-content {
+                max-width: 100%; 
+                max-height: 100%; 
+                top: -80px;
                 background-color: #fefefe;
-                margin: 5% auto;
+                margin: 3% auto;
                 padding: 20px;
                 border: 1px solid #888;
-                width: 60%;
+                width: 50%;
                 max-width: 500px; 
                 display: flex;          
                 flex-direction: column;    
@@ -252,7 +255,17 @@ if (!isset($_SESSION['user_id'])) {
             .modal-content button:hover {
                 background-color: #0056b3; 
             }
-    </style>
+
+            #imagePreview {
+            display: block;
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            }
+        </style>
 
     </head>
     <body>
@@ -336,30 +349,52 @@ if (!isset($_SESSION['user_id'])) {
 
 
 
-        <script>
-        function openEditModal(productId, productName, price, reviews, image) {
-            document.getElementById('editProductId').value = productId;
-            document.getElementById('editProductName').value = productName;
-            document.getElementById('editPrice').value = price;
-            document.getElementById('editReviews').value = reviews;
-
+            <script>
+            
+            function openEditModal(productId, productName, productPrice, productReviews, productImage) {
+                
+                document.getElementById("editProductId").value = productId;
+                document.getElementById("editProductName").value = productName;
+                document.getElementById("editPrice").value = productPrice;
+                document.getElementById("editReviews").value = productReviews;
+                
+                document.getElementById("imagePreview").style.display = "block";
+                document.getElementById("imagePreview").src = productImage;
+                
+                document.getElementById("editProductModal").style.display = "block";
+            }
 
             
-        
+            function closeEditModal() {
+                
+                document.getElementById("editProductModal").style.display = "none";
+            }
+
             
+            document.getElementById('editImageFile').addEventListener('change', function(e) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                   
+                    document.getElementById("imagePreview").style.display = "block";
+                    document.getElementById("imagePreview").src = event.target.result;
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            });
 
-            document.getElementById('editProductModal').style.display = 'flex';
-        }
+            
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("editProductModal")) {
+                    closeEditModal();
+                }
+            }
+            </script>
 
-        function closeEditModal() {
-            document.getElementById('editProductModal').style.display = 'none';
-        }
-        </script>
 
 
 
-<?php
+        <?php
         include("footer.php");
-?>
-</body>
+        ob_end_flush();
+        ?>
+    </body>
 </html>

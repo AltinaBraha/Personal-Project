@@ -9,37 +9,61 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .container {
+            width: 80%;
+            height: 80vh;
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         .left-side {
+            position: relative;
+            flex: 1;
             background-color: rgba(106, 20, 64, 0.8);
             color: white;
-            flex: 1;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            padding: 30px;
+            clip-path: polygon(0 0, 95% 0, 70% 100%, 0% 100%);
         }
+
         .left-side h1 {
-            font-size: 28px;
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+            margin-right: 70px;
         }
+
+        .left-side p {
+            margin-bottom: 20px;
+            margin-right: 70px;
+        }
+
         .right-side {
-            flex: 1;
+            margin-right: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
         }
+
         .form-container {
-            width: 350px;
-            padding: 20px;
+            width: 90%;
+            max-width: 350px;
+            padding: 30px;
             border-radius: 8px;
             background-color: #f9f9f9;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         input {
             width: 100%;
             padding: 10px;
@@ -47,6 +71,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -56,17 +81,21 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
+
         .login-link {
             margin-top: 10px;
             text-align: center;
         }
+
         .login-link a {
             text-decoration: none;
             color: rgba(106, 20, 64, 0.8);
         }
+
         .error-message {
             color: red;
             font-size: 14px;
@@ -114,15 +143,15 @@
             let errorMessage = '';
 
             if (!emailRegex.test(email)) {
-                errorMessage += 'Email-i nuk është valid. Duhet të përmbajë "@" dhe ".".<br>';
+                errorMessage += 'The email is not valid. It must contain "@" and ".".<br>';
             }
 
             if (!passwordRegex.test(password)) {
-                errorMessage += 'Fjalëkalimi duhet të ketë të paktën 6 karaktere, një shkronjë të madhe dhe një numër.<br>';
+                errorMessage += 'The password must be at least 6 characters long, contain an uppercase letter, and a number.<br>';
             }
 
             if (password !== confirmPassword) {
-                errorMessage += 'Fjalëkalimi dhe konfirmimi nuk përputhen.<br>';
+                errorMessage += 'The password and confirmation do not match.<br>';
             }
 
             if (errorMessage) {

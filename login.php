@@ -33,6 +33,7 @@ if (isset($_POST['submit'])) {
                 exit();
             } else {
                 $error_message = "The password is not valid";
+               
             }
         }
     }
@@ -50,44 +51,71 @@ if (isset($_POST['submit'])) {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .container {
+            width: 80%;
+            height: 80vh;
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         .left-side {
+            position: relative;
+            flex: 1;
             background-color: rgba(106, 20, 64, 0.8);
             color: white;
-            flex: 1;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
+            padding: 30px;
+            clip-path: polygon(0 0, 97% 0, 73% 100%, 0% 100%);
         }
+
         .left-side h1 {
-            font-size: 28px;
+            font-size: 2.0rem;
+            margin-bottom: 20px;
+            margin-right: 70px;
         }
+
+        .left-side p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            margin-right: 70px;
+        }
+
         .right-side {
-            flex: 1;
+            margin-right: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
         }
+
         .form-container {
-            width: 350px;
-            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 55px;
             border-radius: 8px;
-            background-color: ;
+            background-color: #f9f9f9;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+           margin-right: 30px;
+           margin-bottom:20px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -97,23 +125,25 @@ if (isset($_POST['submit'])) {
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
+
         .login-link {
             margin-top: 10px;
             text-align: center;
         }
+
         .login-link a {
             text-decoration: none;
             color: rgba(106, 20, 64, 0.8);
         }
+
         .error-message {
             color: red;
-            font-weight: bold;
-            margin-top: 2px;
-            margin-bottom: 5px;
             font-size: 14px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -131,21 +161,25 @@ if (isset($_POST['submit'])) {
 
                     <div class="form-floating">
                         <label for="floatingInput">Username</label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" required>
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
                     </div>
+
                     <div class="form-floating">
                         <label for="floatingPassword">Password</label>
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : ''; ?>" required>
                         <?php if (!empty($error_message) && strpos($error_message, 'password') !== false): ?>
                             <div class="error-message"><?php echo $error_message; ?></div>
                         <?php endif; ?>
                     </div>
+
                     <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign in</button>
+
                     <div class="login-link">
                         <p>Don't have an account? <a href="signup.php">Sign up</a></p>
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 </body>

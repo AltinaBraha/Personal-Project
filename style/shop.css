@@ -8,13 +8,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 .navbar {
     background-color: #fff;
@@ -108,15 +105,17 @@ header p {
 }
 
 .product-container {
-    margin-top: 50%;
+    margin-top: 80px; 
     margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;  
     justify-content: space-around;  
     width: 80%;
     max-width: 1200px;
-
+    min-height: 500px; 
+    position: relative;
 }
+
 
 .product-card {
     background-color: white;
@@ -126,8 +125,12 @@ header p {
     text-align: center;
     width: 30%;  
     margin-bottom: 20px;  
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.product-card:hover {
+    transform: scale(1.05); 
+}
 .product-card img {
     width: 100px;
     height: 150px;
@@ -189,9 +192,9 @@ header p {
     .product-card {
         width: 45%;
     }
-
+    
     .product-container {
-        margin-top: 150rem;
+        margin-top: 15rem;
         margin-bottom: 0;
         display: flex;
         flex-wrap: wrap;  
@@ -246,7 +249,18 @@ header p {
         align-items: center;
     }
 
-  
+    .product-container {
+        margin-top: 80px; 
+        margin-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;  
+        justify-content: space-around;  
+        width: 80%;
+        max-width: 1200px;
+        min-height: 500px; 
+        position: relative;
+    }
+    
     header h1 {
         font-size: 24px;
     }
